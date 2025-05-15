@@ -22,7 +22,7 @@ public class ActorHealth : MonoBehaviour
         return MaxHealth;
     }
 
-    public int ModifyHealth (int amt)
+    public int ModifyHealth(int amt)
     {
         CurrentHealth = Mathf.Clamp(CurrentHealth + amt, 0, MaxHealth);
         return CurrentHealth;
