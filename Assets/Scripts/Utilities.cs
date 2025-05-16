@@ -8,7 +8,7 @@ public class RandomRange
     public Double Max;
     public bool IntOnly;
 
-    public RandomRange(Double min = 0, Double max = 1, bool intOnly = false)
+    public RandomRange(Double min = 0, Double max = 1, bool intOnly = true)
     {
         Min = min;
         Max = max;
