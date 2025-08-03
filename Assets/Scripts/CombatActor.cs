@@ -6,6 +6,8 @@ public class CombatActor : MonoBehaviour
 {
     [SerializeField] public CombatActorData _baseActorData;
     
+    public TeamAffiliation Affiliation { get; private set; }
+    
     public CombatZone DefaultZone { get; private set; } 
     public CombatZone CurrentZone { get; private set; }
     public ActorHealth Health { get; private set; }

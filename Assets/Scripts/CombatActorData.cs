@@ -1,5 +1,6 @@
 using UnityEngine;
 
+public enum TeamAffiliation { Ally, Enemy, Unaffiliated };
 public enum CombatZone { Vanguard, Midline, Artillery }
 
 [CreateAssetMenu(fileName = "Combat Actor Data", menuName = "Scriptable Objects/Combat Actor Data")]
