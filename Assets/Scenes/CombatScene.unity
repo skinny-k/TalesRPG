@@ -338,6 +338,7 @@ MonoBehaviour:
     Selector: 0
     NumTargets: 1
     Zones: 0
+    Constraints: []
   _rand:
     Min: 0
     Max: 0

@@ -3,6 +3,6 @@ using SkinnyUtils;
 
 public class TesterScript : MonoBehaviour
 {
-    [SerializeField] Targeter _targetInfo;
+    public Targeter _targetInfo;
     [SerializeField] RandomRange _rand;
 }

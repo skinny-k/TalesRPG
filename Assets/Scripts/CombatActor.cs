@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(ActorHealth))]
 public class CombatActor : MonoBehaviour
@@ -20,7 +21,9 @@ public class CombatActor : MonoBehaviour
     public int Charisma { get; private set; }
     public int Magic { get; private set; }
 
-    private bool initialized = false;
+    private Dictionary<EffectType, int> _effects;
+    
+    private bool _initialized = false;
 
     void Awake()
     {
@@ -30,7 +33,7 @@ public class CombatActor : MonoBehaviour
 
     public void InitializeStatisticsFromData()
     {
-        if (initialized)
+        if (_initialized)
             return;
         
         Strength     = _baseActorData.Strength;
@@ -47,8 +50,20 @@ public class CombatActor : MonoBehaviour
         
         Health.RecalculateMaxHealth();
 
-        initialized = true;
+        _initialized = true;
     }
 
     // public void InitializeStatisticsFromSaveFile()
+    
+    public int HasEffect(EffectType effect)
+    {
+        try
+        {
+            return _effects[effect];
+        }
+        catch (KeyNotFoundException)
+        {
+            return 0;
+        }
+    }
 }

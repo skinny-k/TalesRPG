@@ -12,18 +12,16 @@ namespace SkinnyUtils
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
             EditorGUI.BeginProperty(position, label, property);
-            float svs = EditorGUIUtility.standardVerticalSpacing;
-            float line = EditorGUIUtility.singleLineHeight + svs;
-            isShown = EditorGUI.BeginFoldoutHeaderGroup(new Rect(position.x, position.y + svs, position.width, line), isShown, label);
+            isShown = EditorGUI.BeginFoldoutHeaderGroup(new Rect(position.x, position.y + SkinnyGUI.svs, position.width, SkinnyGUI.lineHeight), isShown, label);
 
             if (isShown)
             {
                 var lw = EditorGUIUtility.labelWidth;
 
                 // calculate positions
-                Rect minPos = new Rect(position.x, position.y + line, (position.width / 2) - 5, line);
-                Rect maxPos = new Rect(position.x + (position.width / 2), position.y + line, position.width / 2, line);
-                Rect intPos = new Rect(position.x, position.y + (line * 2), position.width, line);
+                Rect minPos = new Rect(position.x, position.y + SkinnyGUI.lineHeight, (position.width / 2) - 5, SkinnyGUI.lineHeight);
+                Rect maxPos = new Rect(position.x + (position.width / 2), position.y + SkinnyGUI.lineHeight, position.width / 2, SkinnyGUI.lineHeight);
+                Rect intPos = new Rect(position.x, position.y + (SkinnyGUI.lineHeight * 2), position.width, SkinnyGUI.lineHeight);
 
                 // draw properties with modified label size
                 EditorGUIUtility.labelWidth = 35;
@@ -48,7 +46,7 @@ namespace SkinnyUtils
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return EditorGUIUtility.singleLineHeight * (isShown ? 3 : 1);
+            return SkinnyGUI.lineHeight * (isShown ? 3 : 1);
         }
     }
 }
